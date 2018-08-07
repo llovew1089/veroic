@@ -1,0 +1,4 @@
+main{clear: both}
+/*clear:both表示左右两侧都不允许浮动*/
+main aside{float: left;width: 150px}
+main section{margin-left:150px;}
