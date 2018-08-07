@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下载页面title</title>
+    <script>
+        var percent = 0;
+        var title = '我的下载';
+        var timer = setInterval(function () {
+            if (percent >= 100) {
+                document.title = '下载完成';
+                clearInterval(timer)
+            }
+            else {
+                percent = percent + 1;
+                document.title = '已下载' + percent + '%' + title;
+            }
+        }, 100);
+
+
+    </script>
+</head>
+<body>
+<h1>我的下载页面</h1>
+</body>
+</html>

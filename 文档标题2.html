@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新消息提醒</title>
+    <script>
+
+        var title = 'XX客服对话聊天框';
+
+        var total = title.length + 1;
+        var index = -1;
+        setInterval(function () {
+            index = (index + 1) % total;
+            document.title = title.substring(index) + '我的新消息页面'
+        }, 500);
+        //        % 是算数运算符
+        //        % 取模运算符，整除后的余数
+        //        title.substring(数字)显示第几位后的字符，由于title长度为9，string0 为全部显示，string9 为全部不显示。所以在取余的时候 total值要+1,这样才能取到余数0-9；
+    </script>
+</head>
+<body>
+<h1>我是string9</h1>
+</body>
+</html>
