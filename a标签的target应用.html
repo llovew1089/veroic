@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a标签的target应用</title>
+    <style>iframe{margin: 0 50px}</style>
+</head>
+<body>
+<h3>链接到外部文档</h3>
+<a href="./测试页面1.html" target="_blank">页面1_blank</a>
+<a href="./测试页面2.html" target="_self">页面2_self</a>
+<!--self指的是在当前页面打开-->
+<a href="./测试页面3.html" target="nst">页面3_环境名称</a>
+<!--iframe 元素会创建包含另外一个文档的内联框架（即行内框架）。-->
+<iframe name="nst" frameborder="1"></iframe>
+<iframe src="./a标签.html" frameborder="1"></iframe>
+</body>
+</html>
