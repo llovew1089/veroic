@@ -1,0 +1,9 @@
+main aside {
+    float: none
+}
+
+/*float:none 默认值。元素不浮动，并会显示在其在文本中出现的位置。*/
+
+main section {
+    margin-left: 0
+}
