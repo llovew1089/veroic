@@ -5,10 +5,22 @@
     <title>插入内容</title>
 </head>
 <body>
+<!--<div>-->
+<!--<img src="./banner202.png" alt="XXX" srcset="./banner201.png 256w , ./1.jpg 512w"-->
+<!--sizes="(max-width:1080px) 256px ,512px">-->
+<!--&lt;!&ndash;srcset属性对浏览器支持不太好，存疑，chrome支持卡顿。&ndash;&gt;-->
+<!--<img src="./banner202.png" alt="XXX" srcset="./banner201.png 2x , ./1.jpg 3x">-->
+<!--</div>-->
+
+
 <div>
-    <img src="./1.jpg" alt="XXX">
+    <picture>
+        <source type="image/jpg" srcset="./1.jpg">
+        <source type="image/png" srcset="./banner202.png">
 
-
+    </picture>
 </div>
+
+
 </body>
 </html>
