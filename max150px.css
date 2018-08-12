@@ -1,4 +1,15 @@
-main{clear: both}
-/*clear:both表示左右两侧都不允许浮动*/
-main aside{float: left;width: 150px}
-main section{margin-left:150px;}
+main {
+    clear: both
+}
+
+/*clear:both 在左右两侧均不允许浮动元素*/
+main aside {
+    float: left;
+    width: 150px;
+}
+
+main section {
+    margin-left: 150px;
+}
+
+/*margin外边距 border边框 padding内边距*/
