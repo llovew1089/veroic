@@ -120,7 +120,7 @@
         }
 
         .list p {
-            width: 500px;
+            width: 600px;
             display: inline-block;
         }
 
@@ -133,7 +133,10 @@
             float: right
         }
 
-        .delete{float: right;margin-top: 10px;}
+        .delete {
+            float: right;
+            margin-top: 10px;
+        }
 
         .prev {
             border: 1px solid #ccc;
@@ -168,7 +171,10 @@
             border-radius: 2px;
             vertical-align: middle;
         }
-        .yeqian{text-align: center}
+
+        .yeqian {
+            text-align: center
+        }
     </style>
 </head>
 <body>
@@ -186,10 +192,14 @@
             <img src="./avatar0.png" alt="用户头像">
         </div>
         <div class="left">
-            <div class="textright"><textarea name="pl" id="pl" cols="30" rows="10" placeholder="评论"></textarea></div>
-            <div class="submit"><span>130/140</span>
-                <button type="submit">评论</button>
-            </div>
+
+            <form action="/demo/demo_form.asp">
+                <div class="textright"><textarea name="pl" id="pl" cols="30" rows="10" placeholder="评论"></textarea>
+                </div>
+                <div class="submit"><span>130/140</span>
+                    <button type="submit">评论</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -200,56 +210,83 @@
             <li class="list"><a href="study.163.com" target="_self"><img src="./avatar1.png" alt="葵葵"></a>
                 <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~呢~很适合睡觉的时候听着呢~
                 </p>
-                   <div class="right"> <div>1分钟前</div> <div class="delete">删除</div></div>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
                 </div>
 
             </li>
             <li class="list"><a href="study.163.com" target="_self"><img src="./avatar2.png" alt="葵葵"></a>
                 <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
                 </p>
-                    <div class="right"> <div>1分钟前</div> <div class="delete">删除</div></div>
+                    <div class="right">
+                        <div>3秒前</div>
+                        <div class="delete">删除</div>
+                    </div>
                 </div>
             </li>
             <li class="list"><a href="study.163.com" target="_self"><img src="./avatar3.png" alt="葵葵"></a>
-                <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
+                <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~适
                 </p>
-                    <div class="right"> <div>1分钟前</div> <div class="delete">删除</div></div>
+                    <div class="right">
+                        <div>55秒前</div>
+                        <div class="delete">删除</div>
+                    </div>
                 </div>
             </li>
             <li class="list"><a href="study.163.com" target="_self"><img src="./avatar4.png" alt="葵葵"></a>
                 <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
                 </p>
-                    <div class="right"> <div>1分钟前</div> <div class="delete">删除</div></div>
+                    <div class="right">
+                        <div>34分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
                 </div>
             </li>
             <li class="list"><a href="study.163.com" target="_self"><img src="./avatar5.png" alt="葵葵"></a>
                 <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
                 </p>
-                    <div class="right"> <div>1分钟前</div> <div class="delete">删除</div></div>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
                 </div>
             </li>
             <li class="list"><a href="study.163.com" target="_self"><img src="./avatar6.png" alt="葵葵"></a>
                 <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
                 </p>
-                    <div class="right"> <div>1分钟前</div> <div class="delete">删除</div></div>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
                 </div>
             </li>
             <li class="list"><a href="study.163.com" target="_self"><img src="./avatar7.png" alt="葵葵"></a>
                 <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
                 </p>
-                    <div class="right"> <div>1分钟前</div> <div class="delete">删除</div></div>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
                 </div>
             </li>
             <li class="list"><a href="study.163.com" target="_self"><img src="./avatar8.png" alt="葵葵"></a>
                 <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
                 </p>
-                    <div class="right"> <div>1分钟前</div> <div class="delete">删除</div></div>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
                 </div>
             </li>
             <li class="list"><a href="study.163.com" target="_self"><img src="./avatar9.png" alt="葵葵"></a>
                 <div class="left"><p><a href="study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
                 </p>
-                    <div class="right"> <div>1分钟前</div> <div class="delete">删除</div></div>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
                 </div>
             </li>
         </ul>
