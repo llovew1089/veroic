@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论模块</title>
+    <style>
+        body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,form,input,textarea,th,td,select{ margin:0; padding:0;}
+        em{ font-style:normal;}
+        li{ list-style:none;}
+        a{ text-decoration:none;}
+        img{ border:none; vertical-align:top;}
+        table{ border-collapse:collapse;}
+        input,textarea{ outline:none;}
+        textarea{ resize:none; overflow:auto;}
+        body{ font:12px "微软雅黑";}
+        main{width: 60%;margin: 0 auto}
+        .space-20{height:20px;}
+        .head{height: 33px;border-bottom: 2px solid #c20c0c}
+        .subpl{ float:left;margin:12px 0 0 20px;}
+        h3{float: left;
+            font-size: 24px;
+            font-weight: normal;}
+        textarea{height: 65px;display: block;width: 100%;padding: 5px 6px 6px;
+            border: 1px solid #cdcdcd;
+            border-radius: 2px;}
+        .text{ margin-left: 62px;}
+        .pl{margin-top:20px }
+        .userhead{ float: left;
+            width: 50px;
+            height: 50px;}
+        .textright{padding-right:16px }
+    </style>
+</head>
+<body>
+<main>
+    <div class="space-20"></div>
+    <!--头部-->
+
+    <div class="head">
+        <h3><span>评论</span></h3>
+        <span class="subpl">共2条评论</span>
+    </div>
+    <!--评论框-->
+    <div class="pl">
+        <div class="userhead">
+            <img src="./avatar0.png" alt="用户头像">
+        </div>
+        <form action="/demo/demo_form.asp">
+        <div class="textright"><div class="text"><textarea name="pl" id="pl" cols="30" rows="10" placeholder="评论"></textarea></div></div>
+         <button type="submit">提交</button></form>
+
+
+    </div>
+
+
+
+</main>
+
+</body>
+</html>
