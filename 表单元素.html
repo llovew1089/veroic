@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单元素</title>
+</head>
+<body>
+<form action="www.baidu.com">
+    <label>姓名<input></label>
+    <label for="custid">姓名</label><input name="custid" id="custid">
+    <label for="dir"></label> 地区 <select name="dir" id="dir">
+    <option value="1">6</option>
+    <option value="2">5</option>
+    <option value="3">4</option>
+    <option value="4">3</option>
+    <option value="5">2</option>
+    <option value="6">1</option>
+
+</select>
+    <label>性别 <input type="text" list="XX"></label>
+    <datalist id="XX">
+        <option value="男人"></option>
+        <option value="女人"></option>
+    </datalist>
+
+
+    <progress max="100"> </progress>
+
+    <meter value="10" min="0"max="100"low="60"high="85"optimum="69"></meter>
+
+    <fieldset>
+        <legend>分组</legend>
+     <p> <label><input type="radio" name="c">123</label>
+       <p> <label><input type="radio" name="c">456</label>
+        <p><label><input type="radio " name="c">789</label>
+
+
+    </fieldset>     <input type="email" pattern="/^[a-zA-Z0-9.!#$%&'*+\/=?^_']">
+    <input type="tel" pattern="[\\d]{11}"><button type="submit"></button>
+</form>
+</body>
+</html>
