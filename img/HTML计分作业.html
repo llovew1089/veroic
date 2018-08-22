@@ -4,56 +4,300 @@
     <meta charset="UTF-8">
     <title>评论模块</title>
     <style>
-        body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,form,input,textarea,th,td,select{ margin:0; padding:0;}
-        em{ font-style:normal;}
-        li{ list-style:none;}
-        a{ text-decoration:none;}
-        img{ border:none; vertical-align:top;}
-        table{ border-collapse:collapse;}
-        input,textarea{ outline:none;}
-        textarea{ resize:none; overflow:auto;}
-        body{ font:12px "微软雅黑";}
-        main{width: 60%;margin: 0 auto}
-        .space-20{height:20px;}
-        .head{height: 33px;border-bottom: 2px solid #c20c0c}
-        .subpl{ float:left;margin:12px 0 0 20px;}
-        h3{float: left;
+        body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, form, input, textarea, th, td, select {
+            margin: 0;
+            padding: 0;
+        }
+
+        em {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            border: none;
+            vertical-align: top;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        input, textarea {
+            outline: none;
+        }
+
+        textarea {
+            resize: none;
+            overflow: auto;
+        }
+
+        body {
+            font: 12px "微软雅黑";
+        }
+
+        main {
+            width: 60%;
+            margin: 0 auto
+        }
+
+        .head {
+            height: 33px;
+            border-bottom: 2px solid #c20c0c;
+            margin-top: 20px;
+        }
+
+        .subpl {
+            float: left;
+            margin: 12px 0 0 20px;
+        }
+
+        h3 {
+            float: left;
             font-size: 24px;
-            font-weight: normal;}
-        textarea{height: 65px;display: block;width: 100%;padding: 5px 6px 6px;
+            font-weight: normal;
+        }
+
+        textarea {
+            height: 65px;
+            display: block;
+            width: 100%;
+            padding: 5px 6px 6px;
             border: 1px solid #cdcdcd;
-            border-radius: 2px;}
-        .text{ margin-left: 62px;}
-        .pl{margin-top:20px }
-        .userhead{ float: left;
+            border-radius: 2px;
+        }
+
+        .pl {
+            margin-top: 20px
+        }
+
+        .userhead {
+            float: left;
             width: 50px;
-            height: 50px;}
-        .textright{padding-right:16px }
+            height: 50px;
+        }
+
+        .textright {
+            padding-right: 16px
+        }
+
+        .submit {
+            padding-top: 10px
+        }
+
+        .submit > button {
+            float: right;
+            background-color: #2E7ECB;
+            border-color: #2E7ECB;
+            color: white
+        }
+
+        .left {
+            margin-left: 62px;
+        }
+
+        .list {
+            padding: 15px 0;
+            border-top: 1px dotted #ccc;
+            overflow: hidden;
+        }
+
+        .list img {
+            float: left;
+            width: 50px;
+            height: 50px;
+            display: block;
+        }
+
+        .list p {
+            width: 600px;
+            display: inline-block;
+        }
+
+        .list span {
+            float: right;
+            display: block
+        }
+
+        .right {
+            float: right
+        }
+
+        .delete {
+            float: right;
+            margin-top: 10px;
+        }
+
+        .prev {
+            border: 1px solid #ccc;
+            color: #cacaca;
+            background-color: #f1f1f1;
+        }
+
+        .page1 {
+            border: 1px solid #A2161B;
+            color: #fff;
+            background-color: #DB131A;
+        }
+
+        .page {
+            border: 1px solid #ccc;
+            color: #333;
+            background-color: white
+        }
+
+        .next {
+            border: 1px solid #ccc;
+            color: #333;
+            background-color: #f1f1f1;
+        }
+
+        .normal {
+            margin: 0 1px 0 2px;
+            display: inline-block;
+            height: 22px;
+            padding: 0 8px;
+            line-height: 22px;
+            border-radius: 2px;
+            vertical-align: middle;
+        }
+
+        .yeqian {
+            text-align: center;
+            margin: 20px 0 20px;
+        }
     </style>
 </head>
 <body>
-   <main>
-       <div class="space-20"></div>
-       <!--头部-->
+<main>
+    <!--头部-->
 
-           <div class="head">
-               <h3><span>评论</span></h3>
-               <span class="subpl">共2条评论</span>
-           </div>
-        <!--评论框-->
-          <div class="pl">
-              <div class="userhead">
-               <img src="./avatar0.png" alt="用户头像">
-           </div>
-              <div class="textright"><div class="text"><textarea name="pl" id="pl" cols="30" rows="10" placeholder="评论"></textarea></div></div>
+    <div class="head">
+        <h3><span>评论</span></h3>
+        <span class="subpl">共2条评论</span>
+    </div>
+    <!--评论框-->
+    <div class="pl">
+        <div class="userhead">
+            <img src="./avatar0.png" alt="用户头像">
+        </div>
+        <div class="left">
 
+            <form action="https://study.163.com">
+                <div class="textright"><textarea name="pl" id="pl" cols="30" rows="10" placeholder="评论"></textarea>
+                </div>
+                <div class="submit"><span>130/140</span>
+                    <button type="submit">评论</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--评论区-->
+    <div class="pl">
+        <ul class="ulist">
+            <li class="list"><a href="https://study.163.com" target="_self"><img src="./avatar1.png" alt="葵葵"></a>
+                <div class="left"><p><a href="https://study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~呢~很适合睡觉的时候听着呢~
+                </p>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
+                </div>
 
+            </li>
+            <li class="list"><a href="https://study.163.com" target="_self"><img src="./avatar2.png" alt="葵葵"></a>
+                <div class="left"><p><a href="https://study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
+                </p>
+                    <div class="right">
+                        <div>3秒前</div>
+                        <div class="delete">删除</div>
+                    </div>
+                </div>
+            </li>
+            <li class="list"><a href="https://study.163.com" target="_self"><img src="./avatar3.png" alt="葵葵"></a>
+                <div class="left"><p><a href="https://study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~适
+                </p>
+                    <div class="right">
+                        <div>55秒前</div>
+                        <div class="delete">删除</div>
+                    </div>
+                </div>
+            </li>
+            <li class="list"><a href="https://study.163.com" target="_self"><img src="./avatar4.png" alt="葵葵"></a>
+                <div class="left"><p><a href="https://study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
+                </p>
+                    <div class="right">
+                        <div>34分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
+                </div>
+            </li>
+            <li class="list"><a href="https://study.163.com" target="_self"><img src="./avatar5.png" alt="葵葵"></a>
+                <div class="left"><p><a href="https://study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
+                </p>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
+                </div>
+            </li>
+            <li class="list"><a href="https://study.163.com" target="_self"><img src="./avatar6.png" alt="葵葵"></a>
+                <div class="left"><p><a href="https://study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
+                </p>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
+                </div>
+            </li>
+            <li class="list"><a href="https://study.163.com" target="_self"><img src="./avatar7.png" alt="葵葵"></a>
+                <div class="left"><p><a href="https://study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
+                </p>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
+                </div>
+            </li>
+            <li class="list"><a href="https://study.163.com" target="_self"><img src="./avatar8.png" alt="葵葵"></a>
+                <div class="left"><p><a href="https://study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
+                </p>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
+                </div>
+            </li>
+            <li class="list"><a href="https://study.163.com" target="_self"><img src="./avatar9.png" alt="葵葵"></a>
+                <div class="left"><p><a href="https://study.163.com" target="_self">葵葵：</a>很适合睡觉的时候听哈很适合睡觉的时候看看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听哈试试看呢~很适合睡觉的时候听着呢~
+                </p>
+                    <div class="right">
+                        <div>1分钟前</div>
+                        <div class="delete">删除</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="yeqian">
 
-       </div>
+        <a href="https://study.163.com" target="_self" class="prev normal" rel="prev">&lsaquo;上一页</a>
+        <a href="https://study.163.com" target="_self" class="page1 normal">1</a>
+        <a href="https://study.163.com" target="_self" class="page normal">2</a>
+        <a href="https://study.163.com" target="_self" class="page normal">3</a>
+        <a href="https://study.163.com" target="_self" class="page normal">4</a>...
+        <a href="https://study.163.com" target="_self" class="page normal">10</a>
+        <a href="https://study.163.com" target="_self" class="next normal" rel="next">下一页&rsaquo;</a>
+    </div>
 
-
-
-   </main>
+</main>
 
 </body>
 </html>
