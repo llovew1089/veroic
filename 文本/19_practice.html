@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>word-wrap</title>
+<link rel="stylesheet" href="demo.css"/>
+<style type="text/css">
+body{margin: 0;}
+.m-demo{
+	width:100%;/* ie6/7 */
+	color:#000;
+	background:#ddd;
+	text-shadow:1px 1px #000;
+	font:20px/3 arial "microsoft yahei";
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	text-indent:2em;
+}
+.m-demo em{font-weight:bold;}
+.m-demo sup{vertical-align:super;font-size:12px;}
+.m-demo del{text-decoration:line-through;}
+</style>
+</head>
+<body>
+<div class="m-demo">
+方程：<em>x<sup>2</sup>+y<sup>2</sup>=128</em>，求x、y的值，请写出解题过程<del>请写出解题过程</del>
+</div>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>开鑫过七夕，寻找我的唯一！</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="Cache-Control" content="no-store"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="keywords" content="开鑫贷，国家开发银行，国有品牌，互联网金融，投融资平台，互联网金融，个人投资"/>
+    <meta name="description" content="开鑫金服旗下开鑫贷是由国家开发银行发起设立的网络借贷服务平台， 秉承国家普惠金融战略，提供网络借贷居间服务。"/>
+    <link rel="shortcut icon" href="/cms/resources/theme/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="/cms/resources/theme/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="/cms/resources/theme/default/styles/global.min.css?v=1527848229333"/>
+    <link rel="stylesheet" type="text/css" href="/cms/resources/theme/default/styles/layout.min.css?v=1527848229333"/>
+    <link rel="stylesheet" type="text/css" href="/cms/resources/theme/default/styles/kxd/kx.min.css?v=1527848229333"/>
+
+    <script type="text/javascript" src="/cms/resources/scripts/third/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+
+        var ctx = "";
+        var SITE = "kxd";
+        var HTTP_PROTOCOL = "https://";
+        var KXJF_SITE_URL = "https://www.kxjf.com";
+        var KXD_SITE_URL = "https://www.gkkxd.com";
+        var KAIFAE_SITE_URL = "https://www.kaifae.com";
+        var ZHUGE_URL = "https://io.kxjf.com:8484";
+        var ZHUGE_APP_KEY = "b3bd89981c894f299fcd68bc9bdef6e1";
+        var CURRENT_USERNAME = "";
+
+        var SITE_LIMIT = "";
+
+        var USE_SOC_CAPTCHA = true;
+    </script>
+    <script type="text/javascript">
+        if (self != top) {
+            top.location = self.location;
+        }
+    </script>
+    <script type="text/javascript" src="/cms/investStrategy/fragment01/lmqx1708/enrollActivity_01.js"></script>
+</head>
+
+<body>
+<div class="min-w1200">
+    <div class="header-nav">
+        <div class="w1180">
+            <div class="header-menu">
+                <ul class="clearfix">
+                    <li><a href="https://www.kxjf.com">前往开鑫金服</a></li>
+                    <li><a href="/user/inviteFriends" class="divide-left">邀请好友</a></li>
+                    <li><a href="/cms/investStrategy/index.html">投资攻略</a></li>
+                    <li><a href="/cms/helpCenter/helpGeneral.html">帮助中心</a></li>
+                    <li class="head_guest divide"><a href="/user/login" class="divide-left">立即登录</a></li>
+                    <li class="head_guest"><a href="/user/register" class="on">免费注册</a></li>
+                    <li class="none head-account"><span class="divide-left" style="padding: 0 11px;">欢迎您<a class="enter-my-account head-account-name" href="javascript:void(0)"></a><a href="/user/logout">[退出]</a></span></li>
+                </ul>
+            </div>
+            <div class="header-contact">
+                <ul class="clearfix">
+                    <li class="header-contact-phone"><span><i class="icon"></i>服务电话 : </span><span class="phone-number">400-621-6021</span></li>
+                    <li class="header-contact-download-app"><span>下载客户端</span><i class="icon"></i></li>
+                </ul>
+            </div>
+            <!-- 答题签到送积分 -->
+            <!-- 题目 -->
+            <div class="kxdn fb-home-answer-sign" style="padding:30px 40px;">
+                <h3><i></i><span id="questionTitle"></span><a target="_blank" class="kxBtn kxBtnBlue kxBtnSm" href="#" id="questionPrompt">找答案</a><input type="hidden" ID="aquestionId"/></h3>
+                <ul class="kxmt20 fb-home-sign-q clearfix">
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" ID="answer_a"/><span ID="answer_sa"></span></label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" ID="answer_b"/><span ID="answer_sb"></span></label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" ID="answer_c"/><span ID="answer_sc"></span></label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="radio" name="answer" ID="answer_d"/><span ID="answer_sd"></span></label>
+                    </li>
+                </ul>
+                <div class="kxtc kxmt20">
+                    <button id="subQuestionSign" class="kxBtn kxBtnYellow kxBtnLg">确定答案并签到</button>
+                </div>
+                <div class="fb-home-sign-tip">
+                    <p>每个用户每日最多只能回答一个问题，回答正确得3积分，答错得1积分。</p>
+                </div>
+            </div>
+            <!-- 获得的积分 -->
+            <div class="fb-home-q-a kxdn">
+                <div class="clearfix kxmt30">
+                    <div class="fb-home-sign-success" id="home-sign-img-st">
+                    </div>
+                    <div class="fb-home-sign-success-text">
+                        <h3 id="signInIsQuestionSuccess"><span>回答正确，获得<strong> <span id="signInPoints">0</span> </strong>积分</span><br/>请明天再来哦！</h3>
+                        <h3 id="signInDefaultSuccess"><span>签到成功，获得<strong> <span id="defaultPoints">0</span> </strong>积分</span><br/>请明天再来哦！</h3>
+                        <h3 id="signInIsQuestionFail"><span>回答错误不得分，请明天再来</span><br/><span>正确答案为：<span class="signInRightOption">0</span></span></h3>
+                        <h3 id="signInIsQuestionFailPoint"><span>回答错误，获得<strong> <span id="wrongPoints">0</span> </strong>积分</span><br/><span>正确答案为：<span class="signInRightOption"></span></span></h3>
+                        <!--<p>邀请好友绑定银行卡可获得200积分，<a href="/user/inviteFriends">去看看</a></p>-->
+                    </div>
+                </div>
+                <div class="kxtc kxmt20">
+                    <button id="getSignValue" class="kxBtn kxBtnYellow kxBtnLg" style="padding-left:35px;padding-right:35px">开鑫笑纳</button>
+                </div>
+            </div>
+            <script>
+                $(function() {
+                    $(".qrcode-link").hide();
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<div class="min-w1200">
+    <div class="kx-header">
+        <div class="headerNav">
+            <div class="w1180 position01">
+                <div class="logo">
+                    <a href="https://www.gkkxd.com"><img src="/cms/resources/temps/logo_kxd.png" ></a>
+                    <a href="#"><img src="/cms/cmsResource/temps/slogan2.png">
+                    </a> </div>
+                <!-- 头部导航信息-->
+                <!-- 头部导航信息-->
+                <div class="header-menu-main">
+                    <ul class="clearfix">
+                        <li id="header-menu-index"><a href="/">首页</a></li>
+                        <li id="header-menu-invest-p2p" class="headerNavInvestLoan"><a href="/trade/invest/investableList?type=loan">投资列表</a></li>
+                        <li id="header-menu-loan" class="headerNavInvestLoan"><a href="/trade/loan/indexLoan" class="header-menu-loan" target="_blank">借款</a></li>
+                        <li id="" class="headerNavInvestLoan"><a href="/cms/infoDisclosure/platformInfo.html" class="header-menu-loan" target="_blank">关于开鑫贷</a></li>
+                        <li><a href="/user/index" class="enter-my-account"><i class="icon"></i><span>我的账户</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--main content-->
+<div class="act-wraper act-kxd">
+
+    <div class="banner-wraper">
+        <div class="banner-tit"></div>
+        <div class="act-time">活动时间：8月16日19：00 - 8月31日17：00</div>
+        <div class="bm-btn">
+            <a id="activity_enroll" data-activity-id="5270f4e0aad24c088f97acc3006abfdb"   value="活动报名">我要报名</a>
+            <p>参与活动必须点击“我要报名”按钮，否则无法获得奖励</p>
+        </div>
+    </div>
+    <div class="cont-wraper">
+        <div class="cont-main">
+            <div class="cont-tit">一见钟情奖</div>
+            <div class="cont-txt">
+                <p><span class="font-red">尚未投资过开鑫贷</span>任意项目的用户，在活动期内成功<span class="font-red">完成首次投资</span>，</p>
+                <p>即可获得“一见钟情”奖，获赠<span class="font-red">50元</span>京东购物卡。</p>
+                <div class="jdk50"></div>
+            </div>
+        </div>
+        <div class="space-20"></div>
+        <div class="space-20"></div>
+        <div class="cont-main">
+            <div class="cont-tit">一鸣惊人奖</div>
+            <div class="cont-txt">
+                <p>活动期内，<span class="font-red">累计投资额前10名</span>的用户，即可获得<span class="font-red">“一鸣惊人”奖</span></p>
+                <div class="jp-img"></div>
+                <div class="space-20"></div>
+                <div class="phb">
+                    <p class="font-18">投资排行榜</p>
+                    <p class="font-14">截止到2018年8月16日</p>
+                </div>
+                <table class="phb-tab">
+                    <tr>
+                        <td style="width:30%">排名</td>
+                        <td style="width:40%">用户名</td>
+
+                        <td style="width:40%">累计投资金额</td>
+                    </tr>
+                    <tr>
+                        <td><em class="pm1"></em></td>
+                        <td>敬请期待</td>
+                        <td>--</td>
+
+                    </tr>
+                    <tr>
+                        <td><em class="pm2"></em></td>
+                        <td>敬请期待</td>
+                        <td>--</td>
+
+                    </tr>
+                    <tr>
+                        <td><em class="pm3"></em></td>
+                        <td>敬请期待</td>
+                        <td>--</td>
+
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">4</span></td>
+                        <td>敬请期待</td>
+                        <td>--</td>
+
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">5</span></td>
+                        <td>敬请期待</td>
+
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">6</span></td>
+                        <td>敬请期待</td>
+                        <td>--</td>
+
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">7</span></td>
+                        <td>敬请期待</td>
+                        <td>--</td>
+
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">8</span></td>
+                        <td>敬请期待</td>
+
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">9</span></td>
+                        <td>敬请期待</td>
+
+                        <td>--</td>
+                    </tr>
+                    <tr>
+                        <td><span class="font-red">10</span></td>
+                        <td>敬请期待</td>
+
+                        <td>--</td>
+                    </tr>
+                </table>
+                <div class="space-20"></div>
+            </div>
+        </div>
+        <div class="space-20"></div>
+        <div class="space-20"></div>
+        <div class="cont-main">
+            <div class="cont-tit">一马当先奖</div>
+            <div class="cont-txt">
+                <p>活动期内，每个项目标的<span class="font-red">首个投资用户</span>（以支付成功用户的下单时间计算），</p>
+                <p>即可获得“一马当先”奖，获赠<span class="font-red">58元</span>无敌超值优惠券。</p>
+                <div class="yhq58"></div>
+                <a class="btn-tc" id="YMDX_Btn">查看中奖名单</a>
+            </div>
+        </div>
+        <div class="space-20"></div>
+        <div class="space-20"></div>
+        <div class="cont-main">
+            <div class="cont-tit">一锤定音奖</div>
+            <div class="cont-txt">
+                <p>活动期内，每个标的满标时<span class="font-red">最后一位投资用户</span>（以支付成功用户的下单时间计算），</p>
+                <p>即可获得“一锤定音”奖，获赠<span class="font-red">30元</span>手机话费。</p>
+                <div class="hf30"></div>
+                <a class="btn-tc" id="YCDY_Btn">查看中奖名单</a>
+            </div>
+        </div>
+        <div class="act-tip">
+            <div class="space-20"></div>
+            <p class="tip-tit">注意事项：</p>
+            <div class="tip-txt">
+                <p>1、本次活动必须点击“我要报名”按钮，否则无法获得奖励；</p>
+                <p>2、“一见钟情”奖的用户是指截至8月16日19：00前从未在开鑫贷投资过任意项目的用户；</p>
+                <p>3、本次活动仅针对带有【七夕有礼】标识、且在活动期间内满标的项目。在8月16日19：00前发行的项目，和8月31日17：00尚未满标的项目均不记为活动标；</p>
+                <p>4、本次活动仅限开鑫贷项目（开金中心项目不计入活动），购买转让区产品不参与此次活动；</p>
+                <p>5、“一鸣惊人”奖按照活动期间累计投资额计算，若出现金额相同的用户，按活动期间首笔投资时间先后进行排名，先投资者排名靠前；</p>
+                <p>6、同时满足多项活动要求的用户，可兼得多项奖励；</p>
+                <p>7、本活动中京东卡、话费、投资优惠券等非实物奖品将于9月10日前发放，请登录电脑端【我的账户】--【通知中心】查收，如未到账，请联系400-621-6021；     </p>
+                <p>8、本活动中实物奖品将于活动结束后15个工作日内，由客服人员电话联系获奖用户，确定地址后快递寄送。奖品型号、款式、颜色不支持自选，敬请谅解。</p>
+            </div>
+            <div class="all-tip">
+                <p>倡导健康的互联网环境，请勿恶意注册账号，否则取消参加活动权利</p>
+                <p>在法律许可的范围内本次活动最终解释权归开鑫贷所有，如有任何疑问请咨询400-621-6021</p>
+            </div>
+            <div class="space-20"></div>
+            <div class="space-20"></div>
+        </div>
+
+    </div>
+</div>
+<div class="act-pop-wrap" style="display:none">
+    <!-- 弹窗1 -->
+    <div class="act-tc" id="YMDX" style="display:none">
+        <div class="btn-gb clearfix"><em></em></div>
+        <div class="tc-main">
+            <p class="tc-tit"></p>
+            <p class="tc-tit">一马当先获奖名单</p>
+            <p style="font-size:16px;text-align:center">截止到8月16日</p>
+            <div class="space-20"></div>
+            <div class="md">
+                <table>
+                    <tr>
+                        <th> 项目编号 </th>
+                        <th>首投用户名 </th>
+                    </tr>
+                    <tr>
+                        <td>------  </td>
+                        <td>敬请期待</td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- 弹窗2  -->
+    <div class="act-tc" id="YCDY" style="display:none">
+        <div class="btn-gb clearfix"><em></em></div>
+        <div class="tc-main">
+            <p class="tc-tit"></p>
+            <p class="tc-tit">一锤定音获奖名单</p>
+            <p style="font-size:16px;text-align:center">截止到8月16日</p>
+            <div class="space-20"></div>
+            <div class="md">
+                <table>
+                    <tr>
+                        <th> 项目编号 </th>
+                        <th>末位投资人</th>
+                    </tr>
+                    <tr>
+                        <td>------ </td>
+                        <td>敬请期待</td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                    <tr>
+                        <td>------    </td>
+                        <td>敬请期待 </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end-->
+<div class="fixed-link" style="position: fixed;">
+    <a class="service-link aOnlineService" href="javascript:void(0)"><span
+            class="icon-kxd"></span><span>在线客服</span></a>
+    <div class="qrcode-link-signMark">
+        <a id="signInRtDiv" class="fb-home-signMark" href="">签到</a>
+    </div>
+    <div class="qrcode-link">二维码
+        <div class="qrcode-group">
+            <div class="qrcode"></div>
+            <span>加我为微信好友</span></div>
+    </div>
+</div>
+<!-- 理财攻略 常用功能 end -->
+<!-- 合作机构 -->
+<!-- 合作机构 end -->
+<div id="checkieerr" style="display:none;height: 50px;width: 100%;line-height: 50px;overflow: hidden;border-top: 1px solid #333;position: fixed;left: 0;bottom: 0;z-index: 997;text-align: center;color: black;_position: absolute;_bottom: auto;_top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));">
+        <span style="position:relative;z-index:10;display: inline-block;font-size:14px;font-weight:bold;color:#fff">您当前的IE浏览器版本过低，这将导致开鑫贷网站的部分功能无法正常使用。请更新浏览器到IE8或以上版本。可点击<a
+                href="http://www.microsoft.com/zh-cn/download/internet-explorer-8-details.aspx"
+                target="_blank">这里</a>到微软网站下载。</span>
+    <div style="background:#333;opacity:0.85;filter:alpha(opacity=85);height:50px;position:absolute;width:100%;left:0;top:0;z-index:5"></div>
+</div>
+</div>
+<div class="kx-middle-popupLayer">
+    <div class="kx-middle-popupLayer-main">
+        <div style="width: 660px;margin: -183px 0px 0px -330px;height: 366px;position: relative;">
+            <img src="/cms/resources/temps/kaifaeUpdate.jpg" id="kx-middle-level" style="cursor: pointer;"><img src="/cms/resources/theme/default/images/xqb-xtb.png" style="width:25px;height: 25px;background:none;" class="close-btn"> </div>
+    </div>
+    <div class="kx-middle-popupLayer-mask"></div>
+</div>
+<div class="footer min-w1200">
+    <div class="w1180 clearfix">
+        <div class="kaifae-footer footlink clearfix" style="background-color: #414141">
+            <div class="service-surport" style="margin-top: 10px;">
+                <p>服务电话</p>
+                <p><strong>400-621-6021</strong></p>
+                <p>法定工作日9:00-22:00 周日9:00-16:00</p>
+            </div>
+            <img src="/cms/cmsResource/resources/temps/kxd_wx.jpg" style="margin: 0 0 0 30px;"/>
+            <div class="copyright" style="margin-top: 10px;">
+                <p>版权所有 ? 无锡开鑫网络借贷信息中介有限公司</p>
+                <p>Copyright ? 2016-2018 Wuxi Kaixin Peer-to-Peer lending information</p>
+                <p>intermediary Co., Ltd. All Rights Reserved</p>
+                <p><a href="http://www.miitbeian.gov.cn/" style="color:#999;font-size:12px;"><span>苏ICP备18024778号-1</span></a></p>
+                <p>
+                    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32021102000767" style="color:#999;font-size:12px;rel="nofollow" target="_blank"><img style="margin:0 "; src="/cms/cmsResource/resources/temps/sgwab.png "/> 苏公网安备 32021102000767号</a></p>
+            </div>
+        </div> </div>
+</div>
+<script type="text/javascript " src="/cms/resources/scripts/third/jquery-layer/layer.min.js?v=1527848229333"></script>
+<script type="text/javascript " src="/cms/resources/scripts/common/global.min.js?v=1527848229333"></script>
+<script type="text/javascript " src="/cms/resources/scripts/common/tongji.js?v=1527848229333"></script>
+<script type="text/javascript " src="/cms/resources/scripts/common/captcha.js?v=1527848229333"></script>
+<script type="text/javascript " src="/cms/resources/scripts/third/jquery-validate/jquery.validate.all.min.js?v=1527848229333"></script>
+<script type="text/javascript " src="/cms/resources/scripts/third/jquery.flexslider-min.js?v=1527848229333"></script>
+<script type="text/javascript " src="/cms/resources/scripts/user/cmsIndex.js?v=1527848229333"></script>
+<script type="text/javascript">headAccountInfo(99);</script>
+<script type="text/javascript " src="/cms/resources/scripts/common/zhugeInit.js?v=1527848229333"></script>
+<script type="text/javascript">
+    // 七夕活动
+    $('#YCDY_Btn').bind('click', function(){
+        $('#YCDY').show().parent('.act-pop-wrap').show();
+    });
+    $('#YMDX_Btn').bind('click', function(){
+        $('#YMDX').show().parent('.act-pop-wrap').show();
+    });
+    $('.act-tc').on('click', '.btn-gb em', function(){
+        $(this).parents('.act-tc').hide();
+        $('.act-pop-wrap').hide();
+    })
+</script>
+</body>
+</html>
