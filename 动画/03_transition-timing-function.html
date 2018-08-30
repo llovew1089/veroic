@@ -11,7 +11,7 @@
 .m-demo pre:nth-child(1){transition-timing-function:ease;top:0;}
 .m-demo pre:nth-child(2){transition-timing-function:linear;top:150px;}
 .m-demo pre:nth-child(3){transition-timing-function:ease-out;top:300px;}
-.m-demo pre:nth-child(4){transition-timing-function:cubic-bezier(0.8,0,0,0.8);top:450px;padding:30px 0;line-height:20px;font-size:12px;}
+.m-demo pre:nth-child(4){transition-timing-function:steps(3,end);top:450px;padding:30px 0;line-height:20px;font-size:12px;}
 .m-demo pre:nth-child(5){transition-timing-function:steps(3,start);top:600px;padding:30px 0;line-height:20px;font-size:16px;}
 </style>
 </head>
@@ -21,7 +21,7 @@
     <pre>linear</pre>
     <pre>ease-out</pre>
     <pre>cubic-bezier<br>(0.8,0,0,0.8)</pre>
-    <pre>steps<br>(3,start)</pre>
+    <pre>steps<br>(3,end)</pre>
 </div>
 </body>
 </html>
