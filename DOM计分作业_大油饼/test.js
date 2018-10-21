@@ -13,3 +13,14 @@ db.getCommentTotal().then(function (total) {
     var a = document.querySelector('.m-header .count ');
     a.textContent=total;
 });
+var current=1;
+var opt = {
+    // 当前页码
+    page: current,
+    // 每页显示数量
+    limit: 10
+};
+db.getCommentList(opt).then(function(ret){
+    // ret - 数组，当前页评论列表
+
+});
