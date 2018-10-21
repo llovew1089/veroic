@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function  pageList(pages, current) {
+        let a=[];
+        if (pages==1) {
+            a=[{number: 1, selected: true}];
+
+        }
+        else  if(pages==2){
+            a=[{number: 1, selected: false},{number: 2, selected: false}];
+        }
+        else  if(pages==3){
+            a=[{number: 1, selected: false},{number: 2, selected: false},{number:3, selected: false}];
+        }
+        else if(pages==4){
+            a=[{number: 1, selected: false},{number: 2, selected: false},{number: 3, selected: false},{number: 4, selected: false}];
+        }
+        else {
+            a=[{number: 1, selected: false},{number: (current-1), selected: false},{number:current, selected: false},{number: current+1, selected: false},{number: pages, selected: false}];
+        }
+        for(var i=0;i< a.length;i++){
+            if (a[i].number==current){
+                a[i].selected=true;
+            }
+        }
+        return a;
+    }
+
+
+
+</script>
+
+</body>
+</html>

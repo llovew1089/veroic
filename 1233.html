@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Pager {
+        /**
+         * @param{Number} pages 总页面数
+         * @param{Number} current 当前页码，默认为 1
+         */
+        constructor(pages, current = 1) {
+            this.pages = pages;
+            this.current = current;
+            this.data = {
+                // “上一页” 按钮是否可以点击
+                prevDisabled: false,
+                // “下一页” 按钮是否可以点击
+                nextDisabled: false,
+                // 是否要显示左侧省略号
+                sepLeftShow: false,
+                // 是否要显示右侧省略号
+                sepRightShow: false,
+                // 需要显示的页码，number 属性是页码，selected 表示是否选中
+                pageList: [
+                    // 比如： {number: 1, selected: true},
+                ]
+            };
+            this.compute();
+        }
+
+
+
+            this.data.pageList = pageList(page, curr);
+        };
+    }
+    const pager = new Pager(10,5);
+        console.log(pager.data);
+
+</script>
+
+</body>
+</html>
