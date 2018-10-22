@@ -24,7 +24,7 @@ function limit(pages, current) {
         return pages % 10
     }
 }
-var limit = limit(pages, current);
+
 var opt = {
     // 当前页码
     page: current,
@@ -37,7 +37,7 @@ db.getCommentList(opt).then(function (ret) {
     for (var i = 0; i < ret.length; i++) {
         copy[i] = ret[i]
     }
-    console.log(copy);
+
     for (var i = 0; i < opt.limit; i++) {
 
         var li = document.createElement('li');
@@ -120,6 +120,42 @@ db.getCommentList(opt).then(function (ret) {
         return disPlayTime;
     }
 });
+//显示评论字节数
+String.prototype.len = function() {
+    var len = 0;
+    for (var i=0; i<this.length; i++) {
+        if (this.charCodeAt(i)>127 || this.charCodeAt(i)==94) {
+            len += 2;
+        } else {
+            len ++;
+        }
+    }
+    return len;
+};
+window.onload = function () {
+    function textCount(text) {
+        var a= text.value;
+        var len =a.len();
+        return len;
+    }
+    var el = document.getElementById('text');
+    el.addEventListener('input', function () {
+        var len = textCount(this); //   调用函数
+        document.getElementById('count').innerHTML = len;
+    });
+};
+
+document.getElementById("myBtn").addEventListener("click", function(){
+  var len=document.getElementById('count').innerHTML;
+    if (len===0){alert("评论不能为空")}
+    else  if(len>=140){alert("超过字数限制")}
+
+});
+
+
+
+
+
 
 
 
