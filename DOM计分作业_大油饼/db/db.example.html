@@ -37,6 +37,7 @@
         db.getCommentList({page:2,limit:5}).then(function (list) {
             log('<h3>get comment list</h3>');
             log('<p>'+JSON.stringify(list)+'</p>');
+            console.log(list)
         });
         // add comment item
         db.addComment({id:id,content:'这是评论内容'}).then(function (data) {
