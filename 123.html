@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var pages = 1000;
+    current = 1;
+    function limit(pages, current) {
+
+        if (current <= (parseInt(pages / 10))) {
+            return 10;
+        } else {
+            return pages % 10
+        }
+    }
+
+</script>
+</body>
+</html>
