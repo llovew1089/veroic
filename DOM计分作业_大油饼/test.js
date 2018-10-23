@@ -52,7 +52,7 @@ db.getCommentList(opt).then(function (ret) {
         li.appendChild(a);
         var img = document.createElement('img');
         img.src = copy[i].user.avatarURL;
-        img.alt = copy[i].user.id;
+        img.alt = copy[i].id;
         a.appendChild(img);
         var div1 = document.createElement('div');
         div1.className = 'reply';
@@ -75,6 +75,28 @@ db.getCommentList(opt).then(function (ret) {
         p2.innerHTML = '<a class="user" href="#">' + copy[i].user.nickName + '</a>:' + copy[i].content + '</p>';
         div2.appendChild(p2);
     }
+    document.querySelectorAll('.reply a')[0].onclick = function () {
+        alert('11')
+    };
+    var dele = document.querySelectorAll('.reply a');
+    for (var i = 0; i < dele.length; i++) {
+        dele[i].onclick = function () {
+            var id = this.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.alt;
+            db.removeComment(id).then(function (ret) {
+                db.getCommentTotal(lim).then(function (total) {
+                    var tot = '共' + JSON.stringify(total) + '条评论';
+                    var count = document.querySelector('.m-header .count ');
+                    count.textContent = tot;
+                    pages = total;
+                    var lim = limit(pages, current);
+                    return lim;
+                });
+            });
+            this.parentNode.parentNode.parentNode.remove();
+            this.preventDefault();
+        }
+    }
+
 });
 function displayDate(time) {
     var now = new Date();
@@ -167,7 +189,7 @@ document.getElementById("myBtn").addEventListener("click", function () {
             li.appendChild(a);
             var img = document.createElement('img');
             img.src = ret.user.avatarURL;
-            img.alt = ret.user.id;
+            img.alt = ret.id;
             a.appendChild(img);
             var div1 = document.createElement('div');
             div1.className = 'reply';
@@ -198,26 +220,25 @@ document.getElementById("myBtn").addEventListener("click", function () {
                 var lim = limit(pages, current);
                 return lim;
             });
+            var dele = document.querySelectorAll('.reply a');
+            for (var i = 0; i < dele.length; i++) {
+                dele[i].onclick = function () {
+                    var id = dele[i].parentNode.parentNode.parentNode.firstElementChild.firstElementChild.alt;
+                    db.removeComment(id).then(function (ret) {
+                        db.getCommentTotal(lim).then(function (total) {
+                            var tot = '共' + JSON.stringify(total) + '条评论';
+                            var count = document.querySelector('.m-header .count ');
+                            count.textContent = tot;
+                            pages = total;
+                            var lim = limit(pages, current);
+                            return lim;
+                        });
+                    });
+                    this.parentNode.parentNode.parentNode.remove();
+                    this.preventDefault();
+                }
+            }
         });
     }
 });
-
-var dele = document.querySelectorAll('.reply a');
-for (var i = 0; i < dele.length; i++) {
-
-    dele[i].onclick = function () {
-        alert('dwacsdvbhasv')
-
-    }
-}
-/*
-$(function () {
-    $("a").on("click", function () {
-        $(this).parentNode.parentNode.parentNode.remove();
-    });
-});
-*/
-
-
-
 
