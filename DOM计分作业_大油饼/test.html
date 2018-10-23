@@ -19,137 +19,17 @@
         <a class="w-avatar" href="#">
             <img src="" id="user" alt="" />
         </a>
-        <form class="reply" method="post" action="/comment">
+        <form class="reply" method="post" action="">
             <div class="txt">
                 <textarea placeholder="评论" id="text"></textarea>
             </div>
             <div class="submit f-clear">
                 <span class="count"><span id="count">0</span>/140</span>
-                <button type="submit" id="myBtn">评论</button>
+                <button type="button" id="myBtn">评论</button>
             </div>
         </form>
     </div>
     <ul class="m-comments"  id="myList">
-      <!--  <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar0.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>28秒前</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：很好听哈～</p>
-            </div>
-        </li>
-        <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar1.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>10分前</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：很好听哈～</p>
-            </div>
-        </li>
-        <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar2.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>6月17日</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～</p>
-            </div>
-        </li>
-        <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar3.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>2018-02-24 13:20</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～很好听哈～</p>
-            </div>
-        </li>
-        <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar4.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>2018-02-24 13:20</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：～很好听哈～很好听哈～很好听哈～很好听哈～</p>
-            </div>
-        </li>
-        <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar5.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>2018-02-24 13:20</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：～很好听哈～很好听哈～很好听哈～很好听哈～</p>
-            </div>
-        </li>
-        <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar6.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>2018-02-24 13:20</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：～很好听哈～很好听哈～很好听哈～很好听哈～</p>
-            </div>
-        </li>
-        <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar7.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>2018-02-24 13:20</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：～很好听哈～很好听哈～很好听哈～很好听哈～</p>
-            </div>
-        </li>
-        <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar8.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>2018-02-24 13:20</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：～很好听哈～很好听哈～很好听哈～很好听哈～</p>
-            </div>
-        </li>
-        <li class="m-comment f-clear">
-            <a class="w-avatar" href="#">
-                <img src="img/avatar9.png" alt="葵葵" />
-            </a>
-            <div class="reply">
-                <p><time>2018-02-24 13:20</time></p>
-                <p><a href="#">删除</a></p>
-            </div>
-            <div class="comment">
-                <p><a class="user" href="#">葵葵</a>：～很好听哈～很好听哈～很好听哈～很好听哈～</p>
-            </div>
-        </li>-->
     </ul>
     <ul class="m-pager">
         <li class="btn prv j-disabled"><a href="/page/8">&lt;上一页</a></li>
