@@ -202,9 +202,14 @@ document.getElementById("myBtn").addEventListener("click", function () {
     }
 });
 
+var dele=document.querySelectorAll('.reply a');
+for (var i=0;i<dele.length;i++){
+    const del=dele[i];
+del.onclick=function(){
+alert('dwacsdvbhasv')
 
-
-
+}
+}
 
 
 
