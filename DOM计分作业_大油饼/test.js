@@ -231,8 +231,7 @@ function showCommentList() {
                     countCommentList();
                 });
                 this.parentNode.parentNode.parentNode.remove();
-                //this.preventDefault();
-                if(dele.length=0){
+                if(dele.length==0){
                 var current = parseInt(document.querySelector(".m-pager .j-selected a").innerText);
                 updatePager(current-1);}
             }
