@@ -12,10 +12,9 @@ var url = user.avatarURL;
 document.getElementById('user').src = url;
 //正确显示评论总数量
 db.getCommentTotal(lim).then(function (total) {
-    var tot = '共' + JSON.stringify(total) + '条评论';
-    var count = document.querySelector('.m-header .count ');
+    var tot = JSON.stringify(total);
+    var count = document.getElementById("total");
     count.textContent = tot;
-    pages = total;
     var lim = limit(pages, current);
     return lim;
 });
@@ -53,7 +52,9 @@ nxt.onclick = function () {
     return showCommentList();
 };
 function updatePager(num) {
-    var pager = new Pager(100, num);
+    var total=parseInt(document.getElementById('total').textContent);
+    var page=Math.ceil(total/10);
+    var pager = new Pager(page, num);
     var data = pager.data;
     var list = data.pageList;
     var pages = document.querySelectorAll('.m-pager .itm a');
@@ -61,17 +62,17 @@ function updatePager(num) {
         prv.classList.add('j-disabled');
         prv.onclick = ''
     } else {
-       prv.classList.remove('j-disabled');
-       prv.onclick = function () {
-           current -= 1;
-           updatePager(current);
-           opt.page = current;
-           return showCommentList();
-       };
+        prv.classList.remove('j-disabled');
+        prv.onclick = function () {
+            current -= 1;
+            updatePager(current);
+            opt.page = current;
+            return showCommentList();
+        };
     }
     if (data.nextDisabled) {
-       nxt.classList.add('j-disabled');
-       nxt.onclick = ''
+        nxt.classList.add('j-disabled');
+        nxt.onclick = ''
     } else {
         nxt.classList.remove('j-disabled');
         nxt.onclick = function () {
@@ -93,8 +94,8 @@ function updatePager(num) {
 
     //设置省略号
 
-   left.style.display = data.sepLeftShow ? 'inline-block' : 'none';
-  right.style.display = data.sepRightShow ? 'inline-block' : 'none'
+    left.style.display = data.sepLeftShow ? 'inline-block' : 'none';
+    right.style.display = data.sepRightShow ? 'inline-block' : 'none'
 }
 class Pager{
     constructor(pages, current = 1) {
@@ -230,16 +231,15 @@ function showCommentList() {
                 var id = this.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.alt;
                 db.removeComment(id).then(function (ret) {
                     db.getCommentTotal(lim).then(function (total) {
-                        var tot = '共' + JSON.stringify(total) + '条评论';
-                        var count = document.querySelector('.m-header .count ');
+                        var tot = JSON.stringify(total);
+                        var count = document.getElementById("total");
                         count.textContent = tot;
-                        pages = total;
                         var lim = limit(pages, current);
                         return lim;
                     });
                 });
                 this.parentNode.parentNode.parentNode.remove();
-                this.preventDefault();
+                //this.preventDefault();
             }
         }
 
@@ -360,10 +360,9 @@ document.getElementById("myBtn").addEventListener("click", function () {
             div2.appendChild(p2);
 
             db.getCommentTotal(lim).then(function (total) {
-                var tot = '共' + JSON.stringify(total) + '条评论';
-                var count = document.querySelector('.m-header .count ');
+                var tot = JSON.stringify(total);
+                var count = document.getElementById("total");
                 count.textContent = tot;
-                pages = total;
                 var lim = limit(pages, current);
                 return lim;
             });
@@ -373,16 +372,15 @@ document.getElementById("myBtn").addEventListener("click", function () {
                     var id = this.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.alt;
                     db.removeComment(id).then(function (ret) {
                         db.getCommentTotal(lim).then(function (total) {
-                            var tot = '共' + JSON.stringify(total) + '条评论';
-                            var count = document.querySelector('.m-header .count ');
+                            var tot = JSON.stringify(total);
+                            var count = document.getElementById("total");
                             count.textContent = tot;
-                            pages = total;
                             var lim = limit(pages, current);
                             return lim;
                         });
                     });
                     this.parentNode.parentNode.parentNode.remove();
-                    this.preventDefault();
+                    //this.preventDefault();
                 }
             }
         });
