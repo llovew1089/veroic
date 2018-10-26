@@ -11,21 +11,16 @@ var lim = 10;
 var url = user.avatarURL;
 document.getElementById('user').src = url;
 //正确显示评论总数量
-db.getCommentTotal(lim).then(function (total) {
-    var tot = JSON.stringify(total);
-    var count = document.getElementById("total");
-    count.textContent = tot;
-    var lim = limit(pages, current);
-    return lim;
-});
-
-function limit(pages, current) {
-    if (current <= (parseInt(pages / 10))) {
-        return 10;
-    } else {
-        return pages % 10
-    }
+function countCommentList() {
+    db.getCommentTotal(lim).then(function (total) {
+        var tot = JSON.stringify(total);
+        var count = document.getElementById("total");
+        count.textContent = tot;
+    });
 }
+countCommentList();
+
+
 var prv = document.querySelector('.m-pager .prv');
 var nxt = document.querySelector('.m-pager .nxt');
 var left = document.getElementById('left');
@@ -52,8 +47,8 @@ nxt.onclick = function () {
     return showCommentList();
 };
 function updatePager(num) {
-    var total=parseInt(document.getElementById('total').textContent);
-    var page=Math.ceil(total/10);
+    var total = parseInt(document.getElementById('total').textContent);
+    var page = Math.ceil(total / 10);
     var pager = new Pager(page, num);
     var data = pager.data;
     var list = data.pageList;
@@ -97,7 +92,7 @@ function updatePager(num) {
     left.style.display = data.sepLeftShow ? 'inline-block' : 'none';
     right.style.display = data.sepRightShow ? 'inline-block' : 'none'
 }
-class Pager{
+class Pager {
     constructor(pages, current = 1) {
         this.pages = pages;
         this.current = current;
@@ -114,24 +109,29 @@ class Pager{
     compute() {
         var page = this.pages;
         var curr = this.current;
+
         function prevDisabled(current) {
             return (current == 1);
         }
+
         this.data.prevDisabled = prevDisabled(curr);
 //            判断当前页为首页时，禁用上一页按钮
         function nextDisabled(pages, current) {
             return !(current < pages);
         }
+
         this.data.nextDisabled = nextDisabled(page, curr);
 //            判断当前页等于最后一页时，禁用下一页按钮
         function sepLeftShow(current) {
             return (current > 3);
         }
+
         this.data.sepLeftShow = sepLeftShow(curr);
 //            当前页大于3，则显示左省略号
-        function sepRightShow(pages,current) {
+        function sepRightShow(pages, current) {
             return (current < pages - 2);
         }
+
         this.data.sepRightShow = sepRightShow(page, curr);
 //            当前页小于总页数-2时，显示右边省略号
         function pageList(pages, current) {
@@ -168,6 +168,7 @@ class Pager{
             return a;
 //                根据当前页判断，置当前页的select为true
         }
+
         this.data.pageList = pageList(page, curr);
     }
 }
@@ -176,7 +177,7 @@ var opt = {
     // 当前页码
     page: current,
     // 每页显示数量
-    limit: lim
+    limit: 10
 };
 showCommentList();
 function showCommentList() {
@@ -198,7 +199,7 @@ function showCommentList() {
             a.href = '#';
             li.appendChild(a);
             var img = document.createElement('img');
-            img.src =this.user.avatarURL;
+            img.src = this.user.avatarURL;
             img.alt = copy[i].id;
             a.appendChild(img);
             var div1 = document.createElement('div');
@@ -222,24 +223,18 @@ function showCommentList() {
             p2.innerHTML = '<a class="user" href="#">' + copy[i].user.nickName + '</a>:' + copy[i].content + '</p>';
             div2.appendChild(p2);
         }
-        document.querySelectorAll('.reply a')[0].onclick = function () {
-            alert('11')
-        };
         var dele = document.querySelectorAll('.reply a');
         for (var i = 0; i < dele.length; i++) {
             dele[i].onclick = function () {
                 var id = this.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.alt;
                 db.removeComment(id).then(function (ret) {
-                    db.getCommentTotal(lim).then(function (total) {
-                        var tot = JSON.stringify(total);
-                        var count = document.getElementById("total");
-                        count.textContent = tot;
-                        var lim = limit(pages, current);
-                        return lim;
-                    });
+                    countCommentList();
                 });
                 this.parentNode.parentNode.parentNode.remove();
                 //this.preventDefault();
+                if(dele.length=0){
+                var current = parseInt(document.querySelector(".m-pager .j-selected a").innerText);
+                updatePager(current-1);}
             }
         }
 
@@ -358,14 +353,8 @@ document.getElementById("myBtn").addEventListener("click", function () {
             var p2 = document.createElement('p');
             p2.innerHTML = '<a class="user" href="#">' + ret.user.nickName + '</a>:' + ret.content + '</p>';
             div2.appendChild(p2);
+            countCommentList();
 
-            db.getCommentTotal(lim).then(function (total) {
-                var tot = JSON.stringify(total);
-                var count = document.getElementById("total");
-                count.textContent = tot;
-                var lim = limit(pages, current);
-                return lim;
-            });
             var dele = document.querySelectorAll('.reply a');
             for (var i = 0; i < dele.length; i++) {
                 dele[i].onclick = function () {
@@ -380,9 +369,14 @@ document.getElementById("myBtn").addEventListener("click", function () {
                         });
                     });
                     this.parentNode.parentNode.parentNode.remove();
-                    //this.preventDefault();
+                    if(dele.length=0){
+                        var current = parseInt(document.querySelector(".m-pager .j-selected a").innerText);
+                        updatePager(current-1);}
                 }
             }
+            var current = parseInt(document.querySelector(".m-pager .j-selected a").innerText);
+            updatePager(current);
         });
+
     }
 });
