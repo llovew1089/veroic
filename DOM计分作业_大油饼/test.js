@@ -90,7 +90,9 @@ function updatePager(num) {
             pages[i].classList.remove('j-selected')
         }
     }
+
     //设置省略号
+
    left.style.display = data.sepLeftShow ? 'inline-block' : 'none';
   right.style.display = data.sepRightShow ? 'inline-block' : 'none'
 }
@@ -368,7 +370,7 @@ document.getElementById("myBtn").addEventListener("click", function () {
             var dele = document.querySelectorAll('.reply a');
             for (var i = 0; i < dele.length; i++) {
                 dele[i].onclick = function () {
-                    var id = dele[i].parentNode.parentNode.parentNode.firstElementChild.firstElementChild.alt;
+                    var id = this.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.alt;
                     db.removeComment(id).then(function (ret) {
                         db.getCommentTotal(lim).then(function (total) {
                             var tot = '共' + JSON.stringify(total) + '条评论';
