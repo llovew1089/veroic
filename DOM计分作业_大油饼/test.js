@@ -182,34 +182,21 @@ class Pager {
 //            当前页小于总页数-2时，显示右边省略号
         function pageList(pages, current) {
             var a = [];
-            if (pages == 1) {
-                a = [{number: 1, selected: true}];
+            if (current == 1) {
+                a = [{number: 1, selected: true},{number: 2, selected: false},{number: 3, selected: false},{number: 4, selected: false},{number: pages, selected:false}];
             }
-            else if (pages == 2) {
-                a = [{number: 1, selected: false}, {number: 2, selected: false}];
+            else if (current == 2) {
+                a = [{number: 1, selected: false},{number: 2, selected: true},{number: 3, selected: false},{number: 4, selected: false},{number: pages, selected:false}];
             }
-            else if (pages == 3) {
-                a = [{number: 1, selected: false}, {number: 2, selected: false}, {number: 3, selected: false}];
+            else if (current == pages) {
+                a = [{number: 1, selected: false},{number: pages-3, selected:false},{number: pages-2, selected: false},{number: pages-1, selected: false},{number: pages, selected:true}];
             }
-            else if (pages == 4) {
+            else if (current == (pages-1)) {
 
-                a = [{number: 1, selected: false}, {number: 2, selected: false}, {
-                    number: 3,
-                    selected: false
-                }, {number: 4, selected: false}];
+                a = [{number: 1, selected: false},{number: pages-3, selected:false},{number: pages-2, selected: false},{number: pages-1, selected: true},{number: pages, selected:false}];
             }
             else {
-                a = [{number: 1, selected: false}, {number: (current - 1), selected: false}, {
-                    number: current,
-                    selected: false
-                }, {number: current + 1, selected: false}, {number: pages, selected: false}];
-            }
-
-//              根据总页数给pageList赋值一个数组，并将所有select置为false
-            for (var i = 0; i < a.length; i++) {
-                if (a[i].number == current) {
-                    a[i].selected = true;
-                }
+                a = [{number: 1, selected: false}, {number: (current - 1), selected: false}, {number: current, selected: true}, {number: current + 1, selected: false}, {number: pages, selected: false}];
             }
             return a;
 //                根据当前页判断，置当前页的select为true
