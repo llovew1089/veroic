@@ -92,6 +92,52 @@ function updatePager(num) {
     left.style.display = data.sepLeftShow ? 'inline-block' : 'none';
     right.style.display = data.sepRightShow ? 'inline-block' : 'none'
 }
+function deletePager(num) {
+    var total = parseInt(document.getElementById('total').textContent)-1;
+    var page = Math.ceil(total / 10);
+    var pager = new Pager(page, num);
+    var data = pager.data;
+    var list = data.pageList;
+    var pages = document.querySelectorAll('.m-pager .itm a');
+    if (data.prevDisabled) {
+        prv.classList.add('j-disabled');
+        prv.onclick = ''
+    } else {
+        prv.classList.remove('j-disabled');
+        prv.onclick = function () {
+            current -= 1;
+            updatePager(current);
+            opt.page = current;
+            return showCommentList();
+        };
+    }
+    if (data.nextDisabled) {
+        nxt.classList.add('j-disabled');
+        nxt.onclick = ''
+    } else {
+        nxt.classList.remove('j-disabled');
+        nxt.onclick = function () {
+            current += 1;
+            updatePager(current);
+            opt.page = current;
+            return showCommentList();
+        };
+    }
+    ////显示页码并设置页码高亮
+    for (var i = 0; i < list.length; i++) {
+        pages[i].innerText = list[i].number;
+        if (list[i].selected) {
+            pages[i].classList.add('j-selected')
+        } else {
+            pages[i].classList.remove('j-selected')
+        }
+    }
+
+    //设置省略号
+
+    left.style.display = data.sepLeftShow ? 'inline-block' : 'none';
+    right.style.display = data.sepRightShow ? 'inline-block' : 'none'
+}
 class Pager {
     constructor(pages, current = 1) {
         this.pages = pages;
@@ -199,7 +245,7 @@ function showCommentList() {
             a.href = '#';
             li.appendChild(a);
             var img = document.createElement('img');
-            img.src = this.user.avatarURL;
+            img.src = copy[i].user.avatarURL;
             img.alt = copy[i].id;
             a.appendChild(img);
             var div1 = document.createElement('div');
@@ -231,9 +277,6 @@ function showCommentList() {
                     countCommentList();
                 });
                 this.parentNode.parentNode.parentNode.remove();
-                if(dele.length==0){
-                var current = parseInt(document.querySelector(".m-pager .j-selected a").innerText);
-                updatePager(current-1);}
             }
         }
 
@@ -359,23 +402,34 @@ document.getElementById("myBtn").addEventListener("click", function () {
                 dele[i].onclick = function () {
                     var id = this.parentNode.parentNode.parentNode.firstElementChild.firstElementChild.alt;
                     db.removeComment(id).then(function (ret) {
-                        db.getCommentTotal(lim).then(function (total) {
-                            var tot = JSON.stringify(total);
-                            var count = document.getElementById("total");
-                            count.textContent = tot;
-                            var lim = limit(pages, current);
-                            return lim;
-                        });
+                        countCommentList();
                     });
                     this.parentNode.parentNode.parentNode.remove();
-                    if(dele.length=0){
-                        var current = parseInt(document.querySelector(".m-pager .j-selected a").innerText);
-                        updatePager(current-1);}
                 }
             }
             var current = parseInt(document.querySelector(".m-pager .j-selected a").innerText);
             updatePager(current);
         });
 
+    }
+});
+var deleteCount = 0;
+var addCount = 0;
+db.on('listchange', function (event) {
+    if (event.action == 'remove') {
+        deleteCount++;
+    }
+    else {
+        addCount++;
+    }
+    var dValue = deleteCount - addCount;
+    if (dValue == opt.limit) {
+        deleteCount = 0;
+        addCount = 0;
+        var current = parseInt(document.querySelector(".m-pager .j-selected a").innerText);
+        current-=1;
+        deletePager(current);
+        opt.page = current;
+        return showCommentList();
     }
 });
